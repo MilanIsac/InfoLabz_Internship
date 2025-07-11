@@ -38,7 +38,7 @@ class Actor(models.Model):
     bio = models.TextField()
     nationality = models.CharField(max_length=50)
     awards = models.TextField()
-    gender = models.CharField(choices=gender_choices)
+    gender = models.CharField(max_length=100, choices=gender_choices)
     birth_date = models.DateField()
     
     def __str__(self):
@@ -58,7 +58,7 @@ class User(models.Model):
     phone = models.CharField(max_length=15)
     status = models.BooleanField(default=True)
     date_joined = models.DateField(auto_now_add=True)
-    gender = models.CharField(choices=gender_choices)
+    gender = models.CharField(max_length=100, choices=gender_choices)
     state = models.ForeignKey(State, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
@@ -82,7 +82,7 @@ class Director(models.Model):
     bio = models.TextField()
     nationality = models.CharField(max_length=50)
     awards = models.TextField()
-    gender = models.CharField(choices=gender_choices)
+    gender = models.CharField(max_length=100, choices=gender_choices)
     
     def __str__(self):
         return self.name
